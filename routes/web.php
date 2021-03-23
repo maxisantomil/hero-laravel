@@ -22,11 +22,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin',[AdminController::class, 'index'])->name ('admin');
-Route::get('/admin/heroes',[HeroController::class, 'index'])->name ('admin.heroes');
-Route::get('/admin/items',[ItemController::class, 'index'])->name ('admin.items');
-Route::get('/admin/enemies',[EnemyController::class, 'index'])->name ('admin.enemies');
-Route::get('/admin/about',[AboutController::class, 'index'])->name ('admin.about');
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::group(['prefix'=>'heroes'],function(){
+        Route::get('/', [HeroController::class, 'index'])->name('admin.heroes');
+        Route::get('create', [HeroController::class, 'create'])->name('admin.heroes.create');
+        Route::post('store', [HeroController::class, 'store'])->name('admin.heroes.store');
+        Route::get('edit/{id}', [HeroController::class, 'edit'])->name('admin.heroes.edit');
+        Route::post('update/{id}', [HeroController::class, 'update'])->name('admin.heroes.update');
+    });
+    
+    Route::get('items', [ItemController::class, 'index'])->name('admin.items');
+    Route::get('enemies', [EnemyController::class, 'index'])->name('admin.enemies');
+    Route::get('about', [AboutController::class, 'index'])->name('admin.about');
+
+});
 
 //Route::get('/admin/{name}',[AdminController::class, 'index']); //A partir de Laravel 8 se escribe asi
 //Route::get ('/admin','AdminController@index'); // posterior a laravel 8

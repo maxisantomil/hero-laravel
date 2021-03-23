@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{{ route('admin') }}">Home</a>
+            <a class="nav-item nav-link" href="{{ route('admin') }}">Home</a>
             <a class="nav-item nav-link" href="{{ route('admin.heroes') }} ">Heroes</a>
             <a class="nav-item nav-link" href="{{ route('admin.items') }}">Items</a>
             <a class="nav-item nav-link" href="{{ route('admin.enemies') }}">Enemies</a>
@@ -29,7 +29,7 @@
         </div>
       </nav>
       <!-- Agrega el contenido de cada pagina -->
-      <div class="container">
+      <div class="container" style= "margin-top: 10px">
         @yield('content')
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
