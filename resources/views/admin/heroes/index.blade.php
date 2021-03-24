@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-4">
-    <a href="{{ route('admin.heroes.create') }}" class= "btn btn-warning mb-2 mt-2">Crear</a>
+    <a href="{{ route('heroes.create') }}" class= "btn btn-warning mb-2 mt-2">Crear</a>
     </div>
   </div>
   <div class="row">
@@ -38,44 +38,42 @@
             <td>{{$hero->xp}}</td>
             <td>
               <div class="row">
-                  <div class="col">
-                    <a href="{{ route('admin.heroes.edit',['id'=>$hero->id])}}" class= "btn btn-primary mb-2 mt-2">Modificar</a>
-                  </div>
-                  <div class="col">
-                    <form action="{{route('admin.heroes.destroy',['id'=>$hero->id])}}" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button type="button" class= "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Borrar</button>
+                <div class="col">
+                     <!-- arreglar bug -->
+                  <a href="{{ route('heroes.edit',$hero->id) }}" class= "btn btn-primary mb-2 mt-2">Modificar</a>
+                </div>
+                <div class="col">
+                   <form action="{{route('heroes.destroy',$hero->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class= "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Borrar</button>
 
-                             <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Alerta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Esta seguro que desea borrar el heroe seleccionado?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        @method('DELETE')
-        <button type="submit" class="btn btn-primary">Si Borrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    <!-- Modal Bootstrap-->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Alerta</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Esta seguro que desea borrar el heroe seleccionado?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     </form>
                   </div>
               </div>
             </td>
           </tr>
         @endforeach
-
- 
-
-      
     </tbody>
   </table>
 </div>

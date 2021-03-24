@@ -3,8 +3,9 @@
 @section('content') 
 <h1>Editar Heroe</h1>
 
-<form action="{{route('admin.heroes.update',['id'=>$hero->id])}}" method="POST">
+<form action="{{route('heroes.update',$hero->id)}}" method="POST">
   @csrf <!-- se agrega por seguridad -->
+  @method('PUT')
     <div class="form-group">
       <label for="name">Nombre</label>
       <input type="text" class="form-control" id="name" name="name" value=" {{ $hero->name }} " aria-describedby="emailHelp" placeholder="Ingrese un nombre" required>
@@ -34,7 +35,7 @@
   <div class="row">
     <div class="col-10"></div>
     <div class="col-2">
-    <a href="{{ route('admin.heroes') }}" class= "btn btn-outline-dark mb-2 mt-2">Volver</a>
+    <a href="{{ route('heroes.index') }}" class= "btn btn-outline-dark mb-2 mt-2">Volver</a>
     </div>
   </div>
   

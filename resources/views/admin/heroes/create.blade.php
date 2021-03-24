@@ -3,7 +3,7 @@
 @section('content') 
 <h1>Crear nuevo Heroe</h1>
 
-<form action="{{route('admin.heroes.store')}}" method="POST">
+<form action="{{route('heroes.store')}}" method="POST">
   @csrf <!-- se agrega por seguridad -->
     <div class="form-group">
       <label for="name">Nombre</label>
@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-10"></div>
     <div class="col-2">
-    <a href="{{ route('admin.heroes') }}" class= "btn btn-outline-dark mb-2 mt-2">Volver</a>
+    <a href="{{ route('heroes.index') }}" class= "btn btn-outline-dark mb-2 mt-2">Volver</a>
     </div>
   </div>
   
