@@ -21,9 +21,9 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="{{ route('admin.index') }}">Home</a>
             <a class="nav-item nav-link" href="{{ route('heroes.index') }} ">Heroes</a>
-            <a class="nav-item nav-link" href="{{ route('admin.items') }}">Items</a>
-            <a class="nav-item nav-link" href="{{ route('admin.enemies') }}">Enemies</a>
-            <a class="nav-item nav-link" href="{{ route('admin.about') }}">About</a>
+            <a class="nav-item nav-link" href="{{ route('item.index') }}">Items</a>
+            <a class="nav-item nav-link" href="{{ route('enemy.index') }}">Enemies</a>
+            <a class="nav-item nav-link" href="{{ route('about.index') }}">About</a>
           </div>
 
         </div>
