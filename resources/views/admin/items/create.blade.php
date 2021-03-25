@@ -4,31 +4,9 @@
 <h1>Crear nuevo Item</h1>
 
 <form action="{{route('item.store')}}" method="POST">
-  @csrf <!-- se agrega por seguridad -->
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Ingrese un nombre" required>
-    </div>
-    <div class="form-group">
-        <label for="hp">HP</label>
-        <input type="number" class="form-control" id="hp" name="hp" aria-describedby="emailHelp" placeholder="Ingrese los puntos de vida" required>
-      </div>
-      <div class="form-group">
-        <label for="atq">Ataque</label>
-        <input type="number" class="form-control" id="atq" name="atq" aria-describedby="emailHelp" placeholder="Ingrese los puntos de ataque"required>
-      </div>
-      <div class="form-group">
-        <label for="def">Defensa</label>
-        <input type="number" class="form-control" id="def" name="def" aria-describedby="emailHelp" placeholder="Ingrese los puntos de defensa" required>
-      </div>
-      <div class="form-group">
-        <label for="luck">Suerte</label>
-        <input type="number" class="form-control" id="luck" name="luck" aria-describedby="emailHelp" placeholder="Ingrese los puntos de suerte" required>
-      </div>
-      <div class="form-group">
-        <label for="cost">Precio</label>
-        <input type="number" class="form-control" id="cost" name="cost" aria-describedby="emailHelp" placeholder="Ingrese el precio" required>
-      </div>
+  
+  @include('admin.items.form') <!-- con esto reutilizamos codigo y optimizamos -->
+  
     <button type="submit" class="btn btn-outline-success">Crear</button>
   </form>
   <div class="row">
