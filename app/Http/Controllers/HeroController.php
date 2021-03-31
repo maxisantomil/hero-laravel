@@ -38,6 +38,9 @@ class HeroController extends Controller
     public function destroy($id){
         $hero= Hero::find($id);
 
+        $filePath=public_path() . '/images/heroes/' . $hero->img_path;
+        \Illuminate\Support\Facades\File::delete($filePath);
+
         $hero->delete();
         return redirect()->route('heroes.index');
     }
@@ -57,7 +60,13 @@ class HeroController extends Controller
         $hero->def=$request->input('def');
         $hero->luck=$request->input('luck');
         $hero->coins=$request->input('coins');
-       
+        if ($request->hasFile('img_path')){
+            $file=$request->file('img_path');
+            $name= time()."_". $file->getClientOriginalName();
+            $file->move(public_path().'/images/heroes',$name);
+            $hero->img_path=$name;
+
+        }
 
         $hero->save();
 

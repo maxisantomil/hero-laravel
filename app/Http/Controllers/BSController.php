@@ -10,17 +10,16 @@ class BSController extends Controller
 {
     public function index()
     {
-        //dd($this->runManualBattle(19,2));
-        return view('admin.bs.index',$this->runAutoBattle(19,2));
+        //dd($this->runManualBattle(19,9));
+        return view('admin.bs.index',$this->runAutoBattle(25,9));
     }
 
 
 //BATALLA AUTOMATICA
     public function runAutoBattle($heroId,$enemyId){
 
-        $hero = Hero::find($heroId)->first();
-        $enemy= Enemy::find($enemyId)->first();
-
+        $hero = Hero::find($heroId);
+        $enemy= Enemy::find($enemyId);
         $events=[];
         $vidaHeroe=$hero->hp;
 
@@ -77,7 +76,9 @@ class BSController extends Controller
         return [ 
         "events"=>$events,
         "heroname"=>$hero->name,
-        "enemyname"=>$enemy->name
+        "enemyname"=>$enemy->name,
+        "heroAvatar"=>$hero->img_path,
+        "enemyAvatar"=>$enemy->img_path,
         ];
     }
 
