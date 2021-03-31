@@ -9,4 +9,8 @@ class Hero extends Model
 {
     protected $table = 'heroes';
 
+
+    public function level(){
+        return $this->hasOne("App\Models\Level","id","level_id");//recibe el modelo, la key , y la foreign key
+    }
 }

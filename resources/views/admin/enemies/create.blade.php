@@ -3,7 +3,7 @@
 @section('content') 
 <h1>Crear nuevo Enemigo</h1>
 
-<form action="{{route('enemy.store')}}" method="POST">
+<form action="{{route('enemy.store')}}" method="POST" enctype="multipart/form-data"><!-- multi part para agregar imagenes-->
  
   @include('admin.enemies.form')   
   

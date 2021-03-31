@@ -24,3 +24,7 @@
       <label for="xp">Experiencia</label>
       <input type="number" class="form-control" id="xp" name="xp" @isset($enemy) value="{{ $enemy->xp }}" @endisset aria-describedby="emailHelp" placeholder="Ingrese la experiencia" required>
     </div>
+    <div class="form-group">
+      <label for="img_path">Imagen</label>
+      <input type="file" name="img_path" id="img_path">
+    </div>
